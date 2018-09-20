@@ -28,6 +28,8 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 	Route::get('/categories/updateform/{id}','CategoryController@updateCategoryForm')->name('categoryUpdateForm');
 	Route::post('/categories/updated','CategoryController@updatedCategory')->name('category.update');
 	Route::get('/categories/delete/{id}','CategoryController@deleteCategory')->name('category/delete');
+	Route::get('post/details/{id}','PostController@showPost')->name('post.details');
+	Route::get('post/edit/{id}','PostController@editPost')->name('post.edit');
 });
 
 

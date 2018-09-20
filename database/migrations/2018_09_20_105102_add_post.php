@@ -16,8 +16,10 @@ class AddPost extends Migration
         Schema::create('posts',function(Blueprint $table){
             $table->increments('id');
             $table->string('title');
-            $table->string('body');
-            $table->string('category_id');
+            $table->text('body');
+            $table->integer('user_id')->unsigned();
+            $table->integer('category_id')->unsigned();
+            $table->boolean('is_published')->default(false);
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ class AddPost extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        //
     }
 }

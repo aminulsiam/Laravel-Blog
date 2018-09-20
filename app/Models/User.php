@@ -22,4 +22,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function User()
+    {
+        return $this->belongsTo(Post::class);
+    }
 }

@@ -48,10 +48,11 @@ class CategoryController extends Controller
     // Delete catergory
     public function deleteCategory($id)
     {
-        $category = Category::where('id',$id);
-        $category->delete();
-        session()->flush('message','Category Delete successfully');
-        return redirect()->route('adminIndex');
+        // $category = Category::where('id',$id);
+        // $category->delete();
+        // session()->flush('message','Category Delete successfully');
+        // return redirect()->route('adminIndex');
+        return redirect()->back();
     }
 
 

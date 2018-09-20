@@ -12,7 +12,14 @@ class Post extends Model
     	'title','body','category_id'
     ];
 
-    public function Category(){
+    public function Category()
+    {
 		return $this->belongsTo(Category::class);
 	}
+
+	public function User()
+	{
+		return $this->belongsTo(User::class);
+	}
+
 }

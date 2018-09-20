@@ -25,21 +25,20 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                    @foreach($categories as $category)
+                                    @forelse($categories as $category)
                                     <tr>
                                         <td>{{ $category->categories }}</td>
                                         <td>0</td>
                                         <td>
                                             <a href="{{ route('categoryUpdateForm',$category->id) }}" class="btn btn-xs btn-info">Edit</a>
-                                            <a href="{{ route('category/delete',$category->id) }}" data-method="DELETE" data-token="{{ csrf_token() }}" data-confirm="Are you sure?" class="btn btn-xs btn-danger">Delete</a>
+                                            <a href="{{ route('category/delete',$category->id) }}" onclick="confirm('Are you sure want to delete this ??')" class="btn btn-xs btn-danger">Delete</a>
                                         </td>
                                     </tr>
-                                    @endforeach
-                                
-                                <!--     <tr>
-                                        <td colspan="2">No category available.</td>
-                                    </tr> -->
-                                
+                                    @empty
+                                    <tr>
+                                        <td colspan="2"><h3>No category available.</h3></td>
+                                    </tr>
+                                @endforelse
                             </tbody>
                         </table>
 

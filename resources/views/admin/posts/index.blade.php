@@ -21,29 +21,37 @@
                                     <th>Body</th>
                                     <th>Author</th>
                                     <th>Category</th>
-                                    <th>Tags</th>
                                     <th>Published</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                
+                                    @forelse($posts as $post)
                                     <tr>
-                                        <td> aminul </td>
-                                        <td> mallik </td>
-                                        <td> aminul </td>
-                                        <td> blog </td>
-                                        <td> something </td>
-                                        <td>aminul</td>
+                                        <td class="col-md-3"> {{ $post->title }}</td>
+                                        <td class="col-md-3"> {{ str_limit($post->body,60) }} </td>
+                                        <td> {{ $post->User->name }} </td>
+                                        <td> {{ $post->Category->categories }}  </td>
                                         <td>
-                                            <a href="" class="btn btn-xs btn-success">Show</a>
-                                            <a href="" class="btn btn-xs btn-info">Edit</a>
+                                            @php
+                                                if($post->is_published == 0){
+                                                    echo "Unpublished";
+                                                }else{
+                                                    echo "published";
+                                                }
+                                            @endphp   
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('post.details',$post->id) }}" class="btn btn-xs btn-success">Show</a>
+                                            <a href="{{ route('post.edit',$post->id) }}" class="btn btn-xs btn-info">Edit</a>
                                             <a href="" data-method="DELETE" data-token="{{ csrf_token() }}" data-confirm="Are you sure?" class="btn btn-xs btn-danger">Delete</a>
                                         </td>
                                     </tr>
-                                    <!-- <tr>
+                                    @empty
+                                    <tr>
                                         <td colspan="5">No post available.</td>
-                                    </tr> -->
+                                    </tr>
+                                    @endforelse
                                 
                             </tbody>
                         </table>

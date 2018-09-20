@@ -26,12 +26,10 @@
     {!! Form::label('category_id', 'Category', ['class' => 'col-md-2 control-label']) !!}
 
     <div class="col-md-8">
-        <!-- {!! Form::select('category_id', $categories, null, ['class' => 'form-control', 'required']) !!} -->
-
         <select class="form-control" name="category_id">
             <option>select category</option>
             @foreach($categories as $category)
-            <option value="{{ $category->id }}">{{ $category->categories }}</option>
+            <option value="{{ $category->id }}">{{ $category->category->categories }}</option>
             @endforeach
         </select>
 
