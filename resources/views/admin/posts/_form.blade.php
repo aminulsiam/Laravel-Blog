@@ -26,15 +26,20 @@
     {!! Form::label('category_id', 'Category', ['class' => 'col-md-2 control-label']) !!}
 
     <div class="col-md-8">
-        <select class="form-control" name="category_id">
+        <select class="form-control" name="category_id" id="category_id">
             <option>select category</option>
             @foreach($categories as $category)
-            <option value="{{ $category->id }}">{{ $category->category->categories }}</option>
+                <option value="{{ $category->id }}">
+                    {{ $category->categories }}
+                </option>
             @endforeach
         </select>
 
         <span class="help-block">
             <strong>{{ $errors->first('category_id') }}</strong>
         </span>
+        <script type="text/javascript">
+            document.getElementById('category_id').value = '$post->category->id';
+        </script>
     </div>
 </div>

@@ -15,12 +15,11 @@
                     </div>
 
                     <div class="panel-body">
-                        {!! Form::model($post, ['method' => 'PUT', 'url' => "/admin/posts/{$post->id}", 'class' => 'form-horizontal', 'role' => 'form']) !!}
+                        <!-- {!! Form::model($post, ['method' => 'post', 'url' => "/post/{$post->id}", 'class' => 'form-horizontal', 'role' => 'form']) !!} -->
 
-                            @include('admin.posts._form')
-
-
-                            
+                        <form action="{{ route('post.update',$post->id) }}" method="post" class="form-horizontal">
+                            @csrf
+                            @include('admin.posts._form')                            
                             <div class="form-group">
                                 <div class="col-md-8 col-md-offset-2">
                                     <button type="submit" class="btn btn-primary">
@@ -28,7 +27,8 @@
                                     </button>
                                 </div>
                             </div>
-
+                        </form>
+                            
                         {!! Form::close() !!}
                     </div>
                 </div>

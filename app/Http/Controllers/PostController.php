@@ -11,7 +11,7 @@ class PostController extends Controller
 {
     // show all post in user login home panel
     public function allPosts(){
-        $posts = Post::all();
+        $posts = Post::orderBy('id','DESC')->get();
     	return view('admin.posts.index',compact('posts'));
     }
 
@@ -45,8 +45,32 @@ class PostController extends Controller
     public function editPost($id)
     {
         $post = Post::where('id',$id)->first();
+        $categories = Category::all();
         return view('admin.posts.edit',compact('post','categories'));
     }
+
+    // update post
+    public function updatePost($id,Request $request)
+    {
+        $post = Post::findOrFail($id);
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $post->user_id = Auth::User()->id;
+        $post->category_id = $request->category_id;
+        $post->save();
+        session()->flash('message','Post updated successfully');
+        return redirect()->route('admin.post');
+    }
+
+    // destroy post
+    public function destroyPost($id)
+    {
+        $post = Post::find($id);
+        $post->delete();
+        session()->flash('message','Post delete successfully');
+        return redirect()->route('admin.post');
+    }
+
 
 
 
