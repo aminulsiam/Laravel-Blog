@@ -39,7 +39,7 @@
             <strong>{{ $errors->first('category_id') }}</strong>
         </span>
         <script type="text/javascript">
-            document.getElementById('category_id').value = '$post->category->id';
+          document.getElementById('category_id').value='{{$post->Category->categories}}';
         </script>
     </div>
 </div>

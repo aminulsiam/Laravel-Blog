@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
+use App\Models\Category;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +26,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $posts      = Post::get()->Count();
+        $categories = Category::get()->Count();
+        $user       = Auth::User()->id;
+        $user_posts = Post::where('user_id',$user)->get()->Count();
+        return view('home',get_defined_vars());
     }
 }

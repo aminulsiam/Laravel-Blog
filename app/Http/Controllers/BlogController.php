@@ -11,8 +11,15 @@ class BlogController extends Controller
     // root
     public function index()
     {
-    	$posts = Post::all();
+    	$posts = Post::with('category')->orderBy('id','DESC')->get();
     	return view('frontend.index',compact('posts'));
+    }
+
+    // show single post in frontend
+    public function singlePost($id)
+    {
+        $post = Post::find($id);
+        return view('frontend.singlepost')->with('post',$post);
     }
 
 

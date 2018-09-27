@@ -8,7 +8,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h2>
-                            {{ $post->title }} <small>by <b>{{ $post->user->name }}</b></small>
+                            {{ $post->title }} <small>by <b>{{ $post->user->name}}</b> at <b>{{ $post->created_at->toDayDateTimeString() }}</b></small>
 
                             <a href="{{ url('admin/posts') }}" class="btn btn-default pull-right">Go Back</a>
                         </h2>

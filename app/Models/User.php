@@ -23,7 +23,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function User()
+    public function Post()
     {
         return $this->belongsTo(Post::class);
     }

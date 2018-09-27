@@ -1,23 +1,49 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+    <div class="container">
+        <div class="row">
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Posts</div>
 
-                    You are logged in!
+                    <div class="panel-body">
+                        <h1>{{ $posts }}</h1>
+                    </div>
                 </div>
             </div>
+
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Catagory</div>
+
+                    <div class="panel-body">
+                        <h1>{{ $categories }}</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Your post</div>
+
+                    <div class="panel-body">
+                        <h1>{{ $user_posts }}</h1>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Categories</div>
+
+                    <div class="panel-body">
+                        <h1>{{ 20 }}</h1>
+                    </div>
+                </div>
+            </div> -->
+
         </div>
     </div>
-</div>
 @endsection

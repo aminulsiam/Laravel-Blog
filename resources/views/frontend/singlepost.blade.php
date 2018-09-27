@@ -4,7 +4,6 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-                @foreach($posts as $post)
 				<div class="panel panel-default">
     <div class="panel-heading">
         {{ $post->title }}
@@ -15,11 +14,10 @@
     </div>
 
     <div class="panel-body">
-        <p>{{ str_limit($post->body,450).'.....' }}</p>
+        <p>{{ $post->body }}</p>
         <p>
             Category:
             <span class="label label-default">{{ $post->category->categories }}</span>
-            <a href="{{ route('single.posts',$post->id) }}" class="btn btn-primary btn-xs">See more</a>
         </p>
         <p>
             <!-- <span class="btn btn-sm btn-success">ادبی</span>
@@ -29,14 +27,7 @@
         </p>
     </div>
 </div>
-@endforeach
 
-<div align="center">
-    <ul class="pagination">
-        <li class="disabled"><span>&laquo; Previous</span></li>
-        <li><a href="http://gentle-everglades-40337.herokuapp.com?page=2" rel="next">Next &raquo;</a></li>
-    </ul>
-</div>
 			</div>
 		</div>
 	</div>

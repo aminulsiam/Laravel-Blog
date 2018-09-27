@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'BlogController@index');
-
+Route::get('/posts/{id}', 'BlogController@singlePost')->name('single.posts');
 
 Auth::routes();
 

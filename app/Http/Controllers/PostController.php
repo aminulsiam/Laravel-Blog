@@ -5,13 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Post;
+use App\Http\Requests\PostsRequest;
 use Auth;
 
 class PostController extends Controller
 {
     // show all post in user login home panel
     public function allPosts(){
-        $posts = Post::orderBy('id','DESC')->get();
+        $user_id = Auth::User()->id;
+        $posts = Post::where('user_id',$user_id)->orderBy('id','DESC')->get();
     	return view('admin.posts.index',compact('posts'));
     }
 
@@ -23,7 +25,7 @@ class PostController extends Controller
     }
 
     // save post
-    public function savePost(Request $request)
+    public function savePost(PostsRequest $request)
     {
         $post = new Post();
         $post->title = $request->title;
