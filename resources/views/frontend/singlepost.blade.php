@@ -18,6 +18,8 @@
         <p>
             Category:
             <span class="label label-default">{{ $post->category->categories }}</span>
+            <br>Author:
+            <span class="label label-default">{{ $post->user->name }}</span>
         </p>
         <p>
             <!-- <span class="btn btn-sm btn-success">ادبی</span>

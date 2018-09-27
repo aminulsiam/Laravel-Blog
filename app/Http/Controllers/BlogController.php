@@ -18,7 +18,7 @@ class BlogController extends Controller
     // show single post in frontend
     public function singlePost($id)
     {
-        $post = Post::find($id);
+        $post = Post::with('category')->find($id);
         return view('frontend.singlepost')->with('post',$post);
     }
 

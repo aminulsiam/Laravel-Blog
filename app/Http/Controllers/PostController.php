@@ -13,7 +13,7 @@ class PostController extends Controller
     // show all post in user login home panel
     public function allPosts(){
         $user_id = Auth::User()->id;
-        $posts = Post::where('user_id',$user_id)->orderBy('id','DESC')->get();
+        $posts = Post::with('user')->where('user_id',$user_id)->get();
     	return view('admin.posts.index',compact('posts'));
     }
 

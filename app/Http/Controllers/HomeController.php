@@ -29,7 +29,7 @@ class HomeController extends Controller
         $posts      = Post::get()->Count();
         $categories = Category::get()->Count();
         $user       = Auth::User()->id;
-        $user_posts = Post::where('user_id',$user)->get()->Count();
+        $user_posts = Post::where('user_id',$user)->get()->count();
         return view('home',get_defined_vars());
     }
 }
