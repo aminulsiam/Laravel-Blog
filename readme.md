@@ -2,15 +2,13 @@
 
 A simple blog for demonstration purpose. Based on Laravel 5.7
 
-## Requirements
+## Project features
 
-- Laravel 5.7
-- PHP >= 5.6.4
-- OpenSSL PHP Extension
-- PDO PHP Extension
-- Mbstring PHP Extension
-- Tokenizer PHP Extension
-- XML PHP Extension
+- Journalist login and register with validation 
+- Added blog by specific Journalist after login
+- Update your profile after login  
+- As a Journalist you can create,read,update,delete your blog
+- Every journalist added category
 
 <!-- ## Demo
 
@@ -25,13 +23,11 @@ user: contact@milon.im | password: password
 ## Installation
 
 ```
-git clone https://github.com/aminulsiam/Laravel-Blog.git blog
-cd blog
+git clone https://github.com/aminulsiam/Laravel-Blog.git 
 composer install
 cp .env.example .env
 php artisan key:generate
 php artisan migrate
-php artisan db:seed
 ```
 
 <!-- If you want dummy data, then run this-
@@ -59,4 +55,4 @@ This projects exposes some API endpoints. You could request those endpoints with
 
 - [Aminul Haq Mallik](https://aminulsiam.github.io/)
 
-Feel free to email me, if you have any question.
+Feel free to email me (aminulhossain90@gmail.com), if you have any question.

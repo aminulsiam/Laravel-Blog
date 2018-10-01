@@ -6,11 +6,9 @@
 			<div class="col-md-12">
 				<div class="panel panel-default">
     <div class="panel-heading">
-        {{ $post->title }}
-
-        <span class="pull-right">
-           {{ $post->created_at->toDayDateTimeString()  }}
-        </span>
+        <h3>
+            {{ $post->title }} <small>by <b>{{ $post->user->name}}</b> at <b>{{ $post->created_at->toDayDateTimeString() }}</b></small>
+        </h3>
     </div>
 
     <div class="panel-body">

@@ -13,7 +13,7 @@ class PostController extends Controller
     // show all post in user login home panel
     public function allPosts(){
         $user_id = Auth::User()->id;
-        $posts = Post::with('user')->where('user_id',$user_id)->get();
+        $posts = Post::with('user')->where('user_id',$user_id)->orderBy('id','DESC')->get();
     	return view('admin.posts.index',compact('posts'));
     }
 
@@ -21,7 +21,8 @@ class PostController extends Controller
     public function createForm()
     {
     	$categories = Category::orderBy('id','DESC')->get(['id','categories']);
-    	return view('admin.posts.create',compact('categories'));
+        $post = true;
+    	return view('admin.posts.create',compact('categories','post'));
     }
 
     // save post

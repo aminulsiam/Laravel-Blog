@@ -38,8 +38,11 @@
         <span class="help-block">
             <strong>{{ $errors->first('category_id') }}</strong>
         </span>
+
+        @empty($post)
         <script type="text/javascript">
            document.getElementById('category_id').value='{{$post->Category->categories}}'
-        </script>
+        </script>  
+        @endempty
     </div>
 </div>

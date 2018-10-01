@@ -19,6 +19,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
+	Route::get('/edit','UserController@edit')->name('user.edit');
+	Route::post('/update/{id}', 'UserController@update')->name('user.update');
 	Route::get('/posts', 'PostController@allPosts')->name('admin.post');
 	Route::get('/posts/create', 'PostController@createForm')->name('cratePostForm');
 	Route::post('/posts/save', 'PostController@savePost')->name('savepost');
