@@ -60,7 +60,7 @@ Feel free to email me (aminulhossain90@gmail.com), if you have any question.
 ## Screenshot
 
 ![Landing Page](/screenshot/ss1.png)
--Show single post
+ ``` Show single post ```
 ![Sign In Page](/screenshot/ss2.png)
 -Login page
 ![Registration Page](/screenshot/ss3.png)
