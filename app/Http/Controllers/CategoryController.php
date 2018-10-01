@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Post;
 
 class CategoryController extends Controller
 {
     // show category in admin category home page
     public function allCategories()
     {
-        $categories = Category::orderBy('id', 'DESC')->get();
+        $categories = Category::withCount('post')->orderBy('id', 'DESC')->get();
     	return view('admin.categories.index',compact('categories'));
     }
 

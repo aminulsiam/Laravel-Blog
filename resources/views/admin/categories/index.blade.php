@@ -28,7 +28,7 @@
                                     @forelse($categories as $category)
                                     <tr>
                                         <td>{{ $category->categories }}</td>
-                                        <td>0</td>
+                                        <td>{{ $category->post_count }}</td>
                                         <td>
                                             <a href="{{ route('categoryUpdateForm',$category->id) }}" class="btn btn-xs btn-info">Edit</a>
                                             <a href="{{ route('category/delete',$category->id) }}" onclick="return confirm('Are you sure want to delete this ??')" class="btn btn-xs btn-danger">Delete</a>
